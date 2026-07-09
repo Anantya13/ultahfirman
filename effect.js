@@ -51,19 +51,26 @@ $('document').ready(function(){
     });
 
     $('#wish_message').click(function(){
-        vw = $(window).width()/2;
-        $('.balloons').stop();
-        var posHBD = [vw-150, vw-50, vw+50];
-        var posFIRMAN = [vw-250, vw-150, vw-50, vw+50, vw+150, vw+250];
-        
-        for(var i=1; i<=3; i++) $('#b'+i).attr('id','b'+i+i).animate({top:150, left: posHBD[i-1]},500);
-        for(var i=4; i<=9; i++) $('#b'+i).attr('id','b'+i+i).animate({top:240, left: posFIRMAN[i-4]},500);
-        
-        $('.balloons').css('opacity','0.9');
-        $('.balloons h2').fadeIn(3000);
-        $(this).fadeOut('slow').delay(3000).promise().done(function(){ $('#story').fadeIn('slow'); });
-    });
-
+    var vw = $(window).width()/2;
+    $('.balloons').stop();
+    
+    // Posisi Baris 1 (HBD) - Menggunakan top: 150px
+    $('#b1').animate({top:150, left: vw-150}, 500);
+    $('#b2').animate({top:150, left: vw-50}, 500);
+    $('#b3').animate({top:150, left: vw+50}, 500);
+    
+    // Posisi Baris 2 (FIRMAN) - Menggunakan top: 250px
+    $('#b4').animate({top:250, left: vw-250}, 500);
+    $('#b5').animate({top:250, left: vw-150}, 500);
+    $('#b6').animate({top:250, left: vw-50}, 500);
+    $('#b7').animate({top:250, left: vw+50}, 500);
+    $('#b8').animate({top:250, left: vw+150}, 500);
+    $('#b9').animate({top:250, left: vw+250}, 500);
+    
+    $('.balloons').css('opacity','0.9');
+    $('.balloons h2').fadeIn(3000);
+    $(this).fadeOut('slow').delay(3000).promise().done(function(){ $('#story').fadeIn('slow'); });
+});
     $('#story').click(function(){
         $(this).fadeOut('slow');
         $('.cake').fadeOut('fast');
