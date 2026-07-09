@@ -54,12 +54,13 @@ $('document').ready(function(){
     var vw = $(window).width()/2;
     $('.balloons').stop();
     
-    // Posisi Baris 1 (HBD) - Menggunakan top: 150px
+    // Posisi yang presisi agar huruf FIRMAN pas di balonnya
+    // b1, b2, b3 (HBD)
     $('#b1').animate({top:150, left: vw-150}, 500);
-    $('#b2').animate({top:150, left: vw-50}, 500);
-    $('#b3').animate({top:150, left: vw+50}, 500);
+    $('#b2').animate({top:150, left: vw}, 500);
+    $('#b3').animate({top:150, left: vw+150}, 500);
     
-    // Posisi Baris 2 (FIRMAN) - Menggunakan top: 250px
+    // b4, b5, b6, b7, b8, b9 (FIRMAN)
     $('#b4').animate({top:250, left: vw-250}, 500);
     $('#b5').animate({top:250, left: vw-150}, 500);
     $('#b6').animate({top:250, left: vw-50}, 500);
@@ -67,10 +68,10 @@ $('document').ready(function(){
     $('#b8').animate({top:250, left: vw+150}, 500);
     $('#b9').animate({top:250, left: vw+250}, 500);
     
-    $('.balloons').css('opacity','0.9');
     $('.balloons h2').fadeIn(3000);
-    $(this).fadeOut('slow').delay(3000).promise().done(function(){ $('#story').fadeIn('slow'); });
+    $(this).fadeOut('slow');
 });
+    
     $('#story').click(function(){
         $(this).fadeOut('slow');
         $('.cake').fadeOut('fast');
